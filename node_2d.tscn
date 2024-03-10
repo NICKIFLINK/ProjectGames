@@ -1,9 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://wctfrq1ov8us"]
+[gd_scene load_steps=6 format=3 uid="uid://wctfrq1ov8us"]
 
-[ext_resource type="Texture2D" uid="uid://6o2ympxydltv" path="res://icon.svg" id="1_v4pt3"]
+[ext_resource type="Texture2D" uid="uid://b3tyqdi1p6l5" path="res://backgrounds/tileable_grass_00.png" id="1_2ebo7"]
+[ext_resource type="Script" path="res://Player.gd" id="2_8munu"]
+[ext_resource type="Texture2D" uid="uid://cqh0j6xgponhk" path="res://character/20dbd303e543e3f.png" id="3_k7nag"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yi5h0"]
+texture = ExtResource("1_2ebo7")
+texture_region_size = Vector2i(128, 128)
+1:2/0 = 0
+3:2/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q1qra"]
+sources/0 = SubResource("TileSetAtlasSource_yi5h0")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(128, 135)
-texture = ExtResource("1_v4pt3")
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_q1qra")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 65536, 0, -65529, 65536, 0, -65521, 65536, 0, -65513, 65536, 0, -65505, 65536, 0, -65497, 65536, 0, 458791, 65536, 0, 458783, 65536, 0, 458775, 65536, 0, 458767, 65536, 0, 458759, 65536, 0, 524287, 65536, 0, 1048575, 65536, 0, 983047, 65536, 0, 983055, 65536, 0, 983063, 65536, 0, 983071, 65536, 0, 983079, 65536, 0, 1572863, 65536, 0, 1507335, 65536, 0, 1507343, 65536, 0, 1507351, 65536, 0, 1507359, 65536, 0, 1507367, 65536, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_8munu")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+position = Vector2(319, 178)
+scale = Vector2(0.264103, 0.264103)
+texture = ExtResource("3_k7nag")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(336, 179)
+zoom = Vector2(2, 1.8)
